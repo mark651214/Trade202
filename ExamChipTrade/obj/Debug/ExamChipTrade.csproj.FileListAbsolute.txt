@@ -1,0 +1,13 @@
+D:\My\Trade\ExamChipTrade\ExamChipTrade\bin\Debug\ExamChipTrade.exe.config
+D:\My\Trade\ExamChipTrade\ExamChipTrade\bin\Debug\ExamChipTrade.exe
+D:\My\Trade\ExamChipTrade\ExamChipTrade\bin\Debug\ExamChipTrade.pdb
+D:\My\Trade\ExamChipTrade\ExamChipTrade\bin\Debug\HtmlAgilityPack.dll
+D:\My\Trade\ExamChipTrade\ExamChipTrade\bin\Debug\Newtonsoft.Json.dll
+D:\My\Trade\ExamChipTrade\ExamChipTrade\bin\Debug\HtmlAgilityPack.pdb
+D:\My\Trade\ExamChipTrade\ExamChipTrade\bin\Debug\HtmlAgilityPack.xml
+D:\My\Trade\ExamChipTrade\ExamChipTrade\obj\Debug\ExamChipTrade.csprojResolveAssemblyReference.cache
+D:\My\Trade\ExamChipTrade\ExamChipTrade\obj\Debug\ExamChipTrade.Form1.resources
+D:\My\Trade\ExamChipTrade\ExamChipTrade\obj\Debug\ExamChipTrade.Properties.Resources.resources
+D:\My\Trade\ExamChipTrade\ExamChipTrade\obj\Debug\ExamChipTrade.csproj.GenerateResource.Cache
+D:\My\Trade\ExamChipTrade\ExamChipTrade\obj\Debug\ExamChipTrade.exe
+D:\My\Trade\ExamChipTrade\ExamChipTrade\obj\Debug\ExamChipTrade.pdb

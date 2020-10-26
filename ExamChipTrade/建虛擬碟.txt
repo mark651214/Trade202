@@ -1,0 +1,1 @@
+imdisk -a -s 1024M -m y:
