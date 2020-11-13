@@ -112,6 +112,7 @@
             this.button68 = new System.Windows.Forms.Button();
             this.button69 = new System.Windows.Forms.Button();
             this.button70 = new System.Windows.Forms.Button();
+            this.button71 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -316,7 +317,7 @@
             this.textBoxStockPeroid.Name = "textBoxStockPeroid";
             this.textBoxStockPeroid.Size = new System.Drawing.Size(84, 22);
             this.textBoxStockPeroid.TabIndex = 21;
-            this.textBoxStockPeroid.Text = "3030";
+            this.textBoxStockPeroid.Text = "1785";
             // 
             // textBoxFromMonth
             // 
@@ -356,7 +357,7 @@
             this.textBoxToDay.Name = "textBoxToDay";
             this.textBoxToDay.Size = new System.Drawing.Size(22, 22);
             this.textBoxToDay.TabIndex = 26;
-            this.textBoxToDay.Text = "22";
+            this.textBoxToDay.Text = "10";
             // 
             // textBoxToMonth
             // 
@@ -364,7 +365,7 @@
             this.textBoxToMonth.Name = "textBoxToMonth";
             this.textBoxToMonth.Size = new System.Drawing.Size(22, 22);
             this.textBoxToMonth.TabIndex = 25;
-            this.textBoxToMonth.Text = "9";
+            this.textBoxToMonth.Text = "11";
             // 
             // button17
             // 
@@ -933,7 +934,7 @@
             // 
             // button69
             // 
-            this.button69.Location = new System.Drawing.Point(12, 472);
+            this.button69.Location = new System.Drawing.Point(12, 544);
             this.button69.Name = "button69";
             this.button69.Size = new System.Drawing.Size(75, 23);
             this.button69.TabIndex = 83;
@@ -943,19 +944,30 @@
             // 
             // button70
             // 
-            this.button70.Location = new System.Drawing.Point(12, 495);
+            this.button70.Location = new System.Drawing.Point(12, 573);
             this.button70.Name = "button70";
             this.button70.Size = new System.Drawing.Size(75, 23);
             this.button70.TabIndex = 84;
-            this.button70.Text = "button70";
+            this.button70.Text = "makecsv";
             this.button70.UseVisualStyleBackColor = true;
             this.button70.Click += new System.EventHandler(this.button70_Click);
+            // 
+            // button71
+            // 
+            this.button71.Location = new System.Drawing.Point(93, 544);
+            this.button71.Name = "button71";
+            this.button71.Size = new System.Drawing.Size(75, 23);
+            this.button71.TabIndex = 85;
+            this.button71.Text = "ParseFinReport";
+            this.button71.UseVisualStyleBackColor = true;
+            this.button71.Click += new System.EventHandler(this.button71_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 533);
+            this.ClientSize = new System.Drawing.Size(735, 603);
+            this.Controls.Add(this.button71);
             this.Controls.Add(this.button70);
             this.Controls.Add(this.button69);
             this.Controls.Add(this.button68);
@@ -1133,6 +1145,7 @@
         private System.Windows.Forms.Button button68;
         private System.Windows.Forms.Button button69;
         private System.Windows.Forms.Button button70;
+        private System.Windows.Forms.Button button71;
     }
 }
 

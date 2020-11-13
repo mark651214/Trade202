@@ -1917,9 +1917,9 @@ namespace ExamChipTrade
         int iLowNDays = 20;
         double dbRattlesnakeOver = 0.02;
 
-        DateTime dtRattlesnakeBaseDate = new DateTime(2020,10, 23);   //
+        DateTime dtRattlesnakeBaseDate = new DateTime(2020,11, 11);   //
         DateTime dtRattlesnakeExamday = new DateTime(2019, 10, 31);    // 
-
+        DateTime dtChipStartDay = new DateTime(2020, 11, 1);          // 營收月份
 
         int iCheckForWeeksHolder = 8;
         List<string> StockHolderList = new List<string>();
@@ -2285,7 +2285,7 @@ namespace ExamChipTrade
             }
 
             DateTime dtLastMonth = dtRattlesnakeBaseDate.AddMonths(-1);
-            DateTime dtChipStartDay = new DateTime(2020, 10, 25);
+
             string strRevenueBasePath = "D:\\Chips\\Revenue\\";
             string strTWSEcsv = strRevenueBasePath + string.Format("t21sc03_{0}_{1}.csv", dtLastMonth.Year - 1911, dtLastMonth.Month);
             string strTPEXcsv = strRevenueBasePath + string.Format("t21sc03_{0}_{1}_otc.csv", dtLastMonth.Year - 1911, dtLastMonth.Month);
@@ -4523,14 +4523,17 @@ namespace ExamChipTrade
 
         private void button31_Click(object sender, EventArgs e)
         {
+            /*
             // 季報  https://mops.twse.com.tw/mops/web/ajax_t163sb04
             string strBasePath = "d:\\Chips\\Season\\";
             int year = 108;
             for (int i = 1; i <= 4; i++)
             {
-                string strGolfFile = strBasePath + string.Format("ajax_t163sb04_{0}_{1}.html", year, i);
+                //string strGolfFile = strBasePath + string.Format("ajax_t163sb04_{0}_{1}.html", year, i);
+                string strGolfFile = strBasePath + string.Format("ajax_t163sb04_{0}_{1}_otc.html", year, i);
                 string Url = "https://mops.twse.com.tw/mops/web/ajax_t163sb04";
-                string param = string.Format("encodeURIComponent=1&step=1&firstin=1&off=1&isQuery=Y&TYPEK=sii&year={0}&season=0{1}", year,i);
+                //string param = string.Format("encodeURIComponent=1&step=1&firstin=1&off=1&isQuery=Y&TYPEK=sii&year={0}&season=0{1}", year,i);
+                string param = string.Format("encodeURIComponent=1&step=1&firstin=1&off=1&isQuery=Y&TYPEK=otc&year={0}&season=0{1}", year, i);
                 HttpWebRequest request = HttpWebRequest.Create(Url) as HttpWebRequest;
                 string result = null;
                 request.Method = "POST";    // 方法
@@ -4538,7 +4541,7 @@ namespace ExamChipTrade
                 request.ContentType = "application/x-www-form-urlencoded";
 
                 byte[] bs = Encoding.ASCII.GetBytes(param);
-
+                
                 using (Stream reqStream = request.GetRequestStream())
                 {
                     reqStream.Write(bs, 0, bs.Length);
@@ -4551,13 +4554,13 @@ namespace ExamChipTrade
                     sr.Close();
                 }
                 File.WriteAllText(strGolfFile, result, Encoding.UTF8);
-            }
+            }*/
 
-            /*
+  
             //  上櫃每月營收 https://mops.twse.com.tw/nas/t21/otc/t21sc03_109_9_0.html 
             string strBasePath = "d:\\Chips\\Revenue\\";
-            DateTime dtStatMon = new DateTime(2014, 10, 1);
-            for (int i = 0; i < 1; i++)
+            DateTime dtStatMon = new DateTime(2020, 10, 1);
+            for (int i = 0; i < 2; i++)
             {
                 string strGolfFile = strBasePath + string.Format("t21sc03_{0}_{1}_otc.csv", dtStatMon.Year - 1911, dtStatMon.Month);
                 string param = string.Format("step=9&functionName=show_file&filePath=/home/html/nas/t21/otc/&fileName=t21sc03_{0}_{1}.csv", dtStatMon.Year - 1911, dtStatMon.Month);
@@ -4591,7 +4594,7 @@ namespace ExamChipTrade
                     request.Abort();
                     Thread.Sleep(10000);
                 }
-            }*/
+            }
 
             /*
             int worksheetNumber = 100;
@@ -4627,8 +4630,8 @@ namespace ExamChipTrade
             //https://mops.twse.com.tw/server-java/FileDownLoad
             //filename="t21sc03_106_1.csv"
             string strBasePath = "d:\\Chips\\Revenue\\";
-            DateTime dtStatMon = new DateTime(2018, 1, 1);
-            for(int i=0;i<48;i++)
+            DateTime dtStatMon = new DateTime(2020, 10, 1);
+            for(int i=0;i<2;i++)
             {
                 string strGolfFile = strBasePath + string.Format("t21sc03_{0}_{1}.csv", dtStatMon.Year - 1911, dtStatMon.Month);
                 string param = string.Format("step=9&functionName=show_file&filePath=/home/html/nas/t21/sii/&fileName=t21sc03_{0}_{1}.csv", dtStatMon.Year - 1911, dtStatMon.Month);
@@ -10650,6 +10653,86 @@ namespace ExamChipTrade
             File.AppendAllText(strwritefilename, straddvalue, Encoding.UTF8);
 
 
+
+        }
+
+        private void button71_Click(object sender, EventArgs e)
+        {
+            string strBase = "D:\\Chips\\Season\\";
+            string strPFile = strBase + "ajax_t163sb04_108_1.html";
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.Load(strPFile, Encoding.UTF8);
+
+
+            string XPath0 = "/html[1]/body[1]";
+
+            string XPath2 = "/html[1]/body[1]/table[2]";
+            string XPath3 = "/html[1]/body[1]/table[3]";
+            string XPath4 = "/html[1]/body[1]/table[4]";
+            string XPath5 = "/html[1]/body[1]/table[5]";
+            string XPath6 = "/html[1]/body[1]/table[6]";
+
+            HtmlNode test0 = doc.DocumentNode.SelectSingleNode(XPath0);
+
+
+            HtmlNode test2 = doc.DocumentNode.SelectSingleNode(XPath2); // 彰銀~上海商銀
+            HtmlNode test3 = doc.DocumentNode.SelectSingleNode(XPath3); // 統一證~群益期
+            HtmlNode test4 = doc.DocumentNode.SelectSingleNode(XPath4); // 台泥~
+            HtmlNode test5 = doc.DocumentNode.SelectSingleNode(XPath5); // 華南金~
+            HtmlNode test6 = doc.DocumentNode.SelectSingleNode(XPath6); // 旺旺保~
+
+            HtmlNode testNodeMean = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/table[2]/tr[1]");
+            HtmlNode testNodeMeanth1 = testNodeMean.SelectSingleNode("th[1]"); //公司代號
+            HtmlNode testNodeMeanth2 = testNodeMean.SelectSingleNode("th[2]"); //公司名稱
+            HtmlNode testNodeMeanth3 = testNodeMean.SelectSingleNode("th[3]"); //利息淨收益
+            HtmlNode testNodeMeanth4 = testNodeMean.SelectSingleNode("th[4]"); //利息以外淨損益
+            HtmlNode testNodeMeanth5 = testNodeMean.SelectSingleNode("th[5]"); //呆帳
+            HtmlNode testNodeMeanth6 = testNodeMean.SelectSingleNode("th[6]"); //營業費用
+            HtmlNode testNodeMeanth7 = testNodeMean.SelectSingleNode("th[7]"); //稅前淨利
+            HtmlNode testNodeMeanth8 = testNodeMean.SelectSingleNode("th[8]"); //所得稅費用
+            HtmlNode testNodeMeanth9 = testNodeMean.SelectSingleNode("th[9]"); //稅後淨利
+
+
+            for (int i = 2; i < 100; i++)
+            {
+                string XPathTest = string.Format("/html[1]/body[1]/table[{0}]",i);
+                HtmlNode testNode = doc.DocumentNode.SelectSingleNode(XPathTest);
+                if(testNode != null)
+                {
+                    HtmlNode testNodeMeaning = testNode.SelectSingleNode("tr[1]");
+
+                    for (int j = 2; j < 100; j++)
+                    {
+                        string XPathTesttr = string.Format("tr[{0}]", j);
+                        HtmlNode testNodeTrOne = testNode.SelectSingleNode(XPathTesttr);
+                        if (testNodeTrOne != null)
+                        {
+                            int mtr = 0;
+                        }
+                    }
+                    /*HtmlNode testNodeTrOne = testNode.SelectSingleNode("tr[2]");
+                    HtmlNode testNodeTrFirt = testNode.FirstChild;
+                    for(int j=1;j<100;j++)
+                    {
+                        HtmlNode testNext = testNodeTrFirt.NextSibling;
+                        if(testNext != null)
+                        {
+                            string XPathTestTr = string.Format("/tr");
+                            HtmlNode testNodeTr = testNode.SelectSingleNode(XPathTestTr);
+                            if (testNodeTr != null)
+                            {
+                                int mtr = 0;
+                            }
+
+                            testNodeTrFirt = testNext;
+                        }
+
+                    }*/
+
+                }
+                int m = 0;
+            }
 
         }
 
