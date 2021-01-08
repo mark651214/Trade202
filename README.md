@@ -11,3 +11,6 @@
 4. Select date from calendar.
 5. Click a button for calculate statistic at that day your selected. the result will be display at visual studio debug output panel.<p>
  EX: button9_Click is for calculate main 3 big group buy above 1.5% of individual company total stocks at the same day. 
+
+# Warning
+> This is not clear source code as you thought. It [smell](https://refactoring.guru/refactoring/smells) not good, but usable.
